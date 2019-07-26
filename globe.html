@@ -37,8 +37,8 @@ animate();
 function initialize()
 {
 	scene = new THREE.Scene();
-
-	let ambientLight = new THREE.AmbientLight( 0xcccccc, 0.5 );
+//change 
+	let ambientLight = new THREE.AmbientLight( 0xcccccc, 0.8 );
 	scene.add( ambientLight );
 
 	camera = new THREE.Camera();
@@ -116,7 +116,8 @@ function initialize()
 	
 	let loader = new THREE.TextureLoader();
 	let texture = loader.load( 'images/earth.jpg', render );
-	let material1 = new THREE.MeshLambertMaterial( { map: texture, opacity: 0.5 } );
+//change
+	let material1 = new THREE.MeshLambertMaterial( { map: texture, opacity: 1.0 } );
 	
 	mesh1 = new THREE.Mesh( geometry1, material1 );
 	mesh1.position.y = 1;
@@ -139,7 +140,7 @@ function initialize()
 function update()
 {
 	if ( markerRoot1.visible )
-		mesh1.rotation.y += 0.01;
+		mesh1.rotation.x += 0.01;
 	// update artoolkit on every frame
 	if ( arToolkitSource.ready !== false )
 		arToolkitContext.update( arToolkitSource.domElement );
