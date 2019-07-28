@@ -136,16 +136,26 @@ function initialize()
 	markerRoot1.add( pointLight );
 }
 
-
+int i=0;
 function update()
 {
 //change
 	if ( markerRoot1.visible )
 	{
-		mesh1.rotation.x += 0.01;
-		if(mesh1.rotation.x/2.0){
-			mesh1.rotation.y += 0.01;  	
+		//mesh1.rotation.order = "YXZ";
+		if(i==0){
+			mesh1.rotation.x += 0.01;
+			i++;
 		}
+		else if(i==1){
+			mesh1.rotation.y += 0.01;
+			i++;
+		}
+ 		else{
+ 			mesh1.rotation.z += 0.01;
+			i=0;
+// 		}
+		
 	}
 	// update artoolkit on every frame
 	if ( arToolkitSource.ready !== false )
