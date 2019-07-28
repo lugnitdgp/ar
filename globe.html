@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <head>
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
@@ -22,30 +23,20 @@
 -->
 
 <script>
-
 var scene, camera, renderer, clock, deltaTime, totalTime;
-
 var arToolkitSource, arToolkitContext;
-
 var markerRoot1;
-var i;
-
 var mesh1;
-
 initialize();
 animate();
-
 function initialize()
 {
-	i=0;
 	scene = new THREE.Scene();
 //change 
 	let ambientLight = new THREE.AmbientLight( 0xcccccc, 0.8 );
 	scene.add( ambientLight );
-
 	camera = new THREE.Camera();
 	scene.add(camera);
-
 	renderer = new THREE.WebGLRenderer({
 		antialias : true,
 		alpha: true
@@ -56,7 +47,6 @@ function initialize()
 	renderer.domElement.style.top = '0px'
 	renderer.domElement.style.left = '0px'
 	document.body.appendChild( renderer.domElement );
-
 	clock = new THREE.Clock();
 	deltaTime = 0;
 	totalTime = 0;
@@ -64,11 +54,9 @@ function initialize()
 	////////////////////////////////////////////////////////////
 	// setup arToolkitSource
 	////////////////////////////////////////////////////////////
-
 	arToolkitSource = new THREEx.ArToolkitSource({
 		sourceType : 'webcam',
 	});
-
 	function onResize()
 	{
 		arToolkitSource.onResize()	
@@ -78,7 +66,6 @@ function initialize()
 			arToolkitSource.copySizeTo(arToolkitContext.arController.canvas)	
 		}	
 	}
-
 	arToolkitSource.init(function onReady(){
 		onResize()
 	});
@@ -91,7 +78,6 @@ function initialize()
 	////////////////////////////////////////////////////////////
 	// setup arToolkitContext
 	////////////////////////////////////////////////////////////	
-
 	// create atToolkitContext
 	arToolkitContext = new THREEx.ArToolkitContext({
 		cameraParametersUrl: 'data/camera_para.dat',
@@ -102,18 +88,15 @@ function initialize()
 	arToolkitContext.init( function onCompleted(){
 		camera.projectionMatrix.copy( arToolkitContext.getProjectionMatrix() );
 	});
-
 	////////////////////////////////////////////////////////////
 	// setup markerRoots
 	////////////////////////////////////////////////////////////
-
 	// build markerControls
 	markerRoot1 = new THREE.Group();
 	scene.add(markerRoot1);
 	let markerControls1 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot1, {
 		type: 'pattern', patternUrl: "data/hiro.patt",
 	})
-
 	let geometry1 = new THREE.SphereGeometry(1, 32,32);
 	
 	let loader = new THREE.TextureLoader();
@@ -137,40 +120,18 @@ function initialize()
 	);
 	markerRoot1.add( pointLight );
 }
-
-
 function update()
 {
-//change
 	if ( markerRoot1.visible )
-	{
-		//mesh1.rotation.order = "YXZ";
-		if(i==0){
-			mesh1.rotation.x += 0.01;
-			i++;
-		}
-		else if(i==1){
-			mesh1.rotation.y += 0.01;
-			i++;
-		}
- 		else{
- 			mesh1.rotation.z += 0.01;
-			i=0;
-// 		}
-		
-	}
+		mesh1.rotation.x += 0.01;
 	// update artoolkit on every frame
 	if ( arToolkitSource.ready !== false )
 		arToolkitContext.update( arToolkitSource.domElement );
 }
-
-
 function render()
 {
 	renderer.render( scene, camera );
 }
-
-
 function animate()
 {
 	requestAnimationFrame(animate);
@@ -179,7 +140,6 @@ function animate()
 	update();
 	render();
 }
-
 </script>
 
 </body>
