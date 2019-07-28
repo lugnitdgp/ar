@@ -124,11 +124,14 @@ function update()
 {
 	if ( markerRoot1.visible )
 		{
-			if(mesh1.rotation.x < mesh1.rotation.y){
+			if(mesh1.rotation.x <= mesh1.rotation.y && mesh1.rotation.x <= mesh1.rotation.z ){
 				mesh1.rotation.x += 0.01;
 			}
-			else{
+			else if (mesh1.rotation.y <= mesh1.rotation.x && mesh1.rotation.y <= mesh1.rotation.z){
 				mesh1.rotation.y += 0.01;
+			}
+			else if (mesh1.rotation.z <= mesh1.rotation.y && mesh1.rotation.z <= mesh1.rotation.x){
+				mesh1.rotation.z += 0.01;
 			}
 		}
 	// update artoolkit on every frame
