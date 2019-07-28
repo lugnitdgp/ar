@@ -28,6 +28,7 @@ var scene, camera, renderer, clock, deltaTime, totalTime;
 var arToolkitSource, arToolkitContext;
 
 var markerRoot1;
+var i;
 
 var mesh1;
 
@@ -36,6 +37,7 @@ animate();
 
 function initialize()
 {
+	i=0;
 	scene = new THREE.Scene();
 //change 
 	let ambientLight = new THREE.AmbientLight( 0xcccccc, 0.8 );
@@ -136,7 +138,7 @@ function initialize()
 	markerRoot1.add( pointLight );
 }
 
-int i=0;
+
 function update()
 {
 //change
