@@ -123,7 +123,14 @@ function initialize()
 function update()
 {
 	if ( markerRoot1.visible )
-		mesh1.rotation.x += 0.01;
+		{
+			if(mesh1.rotation.x < mesh1.rotation.y){
+				mesh1.rotation.x += 0.01;
+			}
+			else{
+				mesh1.rotation.y += 0.01;
+			}
+		}
 	// update artoolkit on every frame
 	if ( arToolkitSource.ready !== false )
 		arToolkitContext.update( arToolkitSource.domElement );
