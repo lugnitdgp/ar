@@ -105,7 +105,7 @@ function initialize()
 	let loader = new THREE.TextureLoader();
 	let texture = loader.load( 'images/earth.jpg', render );
 //change
-	let material1 = new THREE.MeshLambertMaterial( { map: texture, opacity: 0.6 } );
+	let material1 = new THREE.MeshLambertMaterial( { map: texture, opacity: 1 } );
 	
 	mesh1 = new THREE.Mesh( geometry1, material1 );
 //change	
