@@ -108,7 +108,7 @@ function initialize()
 	
 	mesh1 = new THREE.Mesh( geometry1, material1 );
 //change	
-	mesh1.position.y = 1;
+	mesh1.position.y = 0;
 	
 	markerRoot1.add( mesh1 );
 	
@@ -122,6 +122,7 @@ function initialize()
 		) 
 	);
 	markerRoot1.add( pointLight );
+	camera.position.set(0,1,0);
 }
 function update()
 {
