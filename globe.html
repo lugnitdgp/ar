@@ -36,7 +36,8 @@ function initialize()
 	let ambientLight = new THREE.AmbientLight( 0xcccccc, 0.8 );
 	scene.add( ambientLight );
 	camera = new THREE.Camera();
-	camera.position.set(1,1,0);
+	camera.position.set(0,0,1);
+	camera.lookAt(new THREE.Vector3(0,0,0));
 	scene.add(camera);
 	renderer = new THREE.WebGLRenderer({
 		antialias : true,
@@ -105,7 +106,7 @@ function initialize()
 	let loader = new THREE.TextureLoader();
 	let texture = loader.load( 'images/earth.jpg', render );
 //change
-	let material1 = new THREE.MeshLambertMaterial( { map: texture, opacity: 0.6 } );
+	let material1 = new THREE.MeshLambertMaterial( { map: texture, opacity: 1 } );
 	
 	mesh1 = new THREE.Mesh( geometry1, material1 );
 //change	
