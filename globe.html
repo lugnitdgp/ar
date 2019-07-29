@@ -152,9 +152,7 @@ function animate()
 	mesh1.rotation.y+=0.05;
 	deltaTime = clock.getDelta();
 	totalTime += deltaTime;
-	//update();
-	if ( arToolkitSource.ready !== false )
-	arToolkitContext.update( arToolkitSource.domElement );
+	update();
 	
 	render();
 }
