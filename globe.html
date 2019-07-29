@@ -104,7 +104,7 @@ function initialize()
 	let loader = new THREE.TextureLoader();
 	let texture = loader.load( 'images/earth.jpg', render );
 //change
-	let material1 = new THREE.MeshLambertMaterial( { map: texture, opacity: 1 } );
+	let material1 = new THREE.MeshLambertMaterial( { map: texture, opacity: 0.6 } );
 	
 	mesh1 = new THREE.Mesh( geometry1, material1 );
 //change	
@@ -137,7 +137,7 @@ function update()
 			else if (mesh1.rotation.z <= mesh1.rotation.y && mesh1.rotation.z <= mesh1.rotation.x){
 				mesh1.rotation.y += 0.03;
 			}*/
-			mesh1.rotation.y+=0.03;
+			mesh1.rotation.z+=0.03;
 		}
 	// update artoolkit on every frame
 	if ( arToolkitSource.ready !== false )
