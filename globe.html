@@ -153,6 +153,8 @@ function animate()
 	deltaTime = clock.getDelta();
 	totalTime += deltaTime;
 	//update();
+	if ( arToolkitSource.ready !== false )
+	arToolkitContext.update( arToolkitSource.domElement );
 	
 	render();
 }
