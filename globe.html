@@ -98,7 +98,8 @@ function initialize()
 //change
 		type: 'pattern', patternUrl: "data/pattern-GLUG.patt",
 	})
-	let geometry1 = new THREE.SphereGeometry(1, 32,32);
+//change	
+	let geometry1 = new THREE.SphereGeometry(1, 32,32,1);
 	
 	let loader = new THREE.TextureLoader();
 	let texture = loader.load( 'images/earth.jpg', render );
@@ -126,7 +127,7 @@ function update()
 {
 	if ( markerRoot1.visible )
 		{
-			mesh1.rotation.z += 0;
+			mesh1.rotation.z += 0.05;
 // 			if(mesh1.rotation.x <= mesh1.rotation.y && mesh1.rotation.x <= mesh1.rotation.z ){
 // 				mesh1.rotation.x += 0.01;
 // 			}
