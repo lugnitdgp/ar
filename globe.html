@@ -99,12 +99,12 @@ function initialize()
 		type: 'pattern', patternUrl: "data/pattern-GLUG.patt",
 	})
 //change	
-	let geometry1 = new THREE.SphereGeometry(1, 32,32,1);
+	let geometry1 = new THREE.SphereGeometry(1, 32,32);
 	
 	let loader = new THREE.TextureLoader();
 	let texture = loader.load( 'images/earth.jpg', render );
 //change
-	let material1 = new THREE.MeshLambertMaterial( { map: texture, opacity: 0.8 } );
+	let material1 = new THREE.MeshLambertMaterial( { map: texture, opacity: 1 } );
 	
 	mesh1 = new THREE.Mesh( geometry1, material1 );
 //change	
@@ -149,9 +149,11 @@ function render()
 function animate()
 {
 	requestAnimationFrame(animate);
-	deltaTime = clock.getDelta();
-	totalTime += deltaTime;
-	update();
+	mesh1.rotation.y+=0.05;
+	//deltaTime = clock.getDelta();
+	//totalTime += deltaTime;
+	//update();
+	
 	render();
 }
 </script>
