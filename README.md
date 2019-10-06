@@ -1,1 +1,0 @@
-# Sample AR for Orientation
